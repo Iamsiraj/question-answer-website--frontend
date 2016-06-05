@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="javascript/angular.js"></script>
+<script src="javascript/angular-route.js"></script>
+<script src="javascript/jquery-2.1.4.js"></script>
+<script src="javascript/bootstrap.js"></script>
+<script src="javascript/filter.js"></script>
+<script src="javascript/jquery.min.js"></script>
+<script src="javascript/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="javascript/jquery.easing.1.3.min.js"></script>
+<script src="javascript/html5.js"></script>
+<script src="./javascript/twitter/jquery.tweet.js"></script>
+<script src="javascript/jflickrfeed.min.js"></script>
+<script src="javascript/jquery.inview.min.js"></script>
+<script src="javascript/jquery.tipsy.js"></script>
+<script src="javascript/tabs.js"></script>
+<script src="javascript/jquery.flexslider.js"></script>
+<script src="javascript/jquery.prettyPhoto.js"></script>
+<script src="javascript/jquery.carouFredSel-6.2.1-packed.js"></script>
+<script src="javascript/jquery.scrollTo.js"></script>
+<script src="javascript/jquery.nav.js"></script>
+<script src="javascript/tags.js"></script>
+<script src="javascript/jquery.bxslider.min.js"></script>
+<script src="javascript/custom.js"></script>
+<script src="main.js"></script>
+<script src="javascript/controller/profile.js"></script>
+<script src="javascript/controller/navbar.js"></script>
+<script src="javascript/controller/topUsers.js"></script>
+<script src="javascript/controller/home.js"></script>
+<script src="javascript/controller/login.js"></script>
+<script src="javascript/controller/individualQues.js"></script>
+<script src="javascript/controller/askQues.js"></script>
+<script src="javascript/controller/questions.js"></script>
+<script src="javascript/factory/userData.js"></script>
+<script src="javascript/controller/signup.js"></script>
+<script src="javascript/controller/editProfile.js"></script>
+<script src="javascript/controller/search.js"></script>
+<script src="javascript/controller/uProfile.js"></script>
+<link href="stylesheet/style.css" rel="stylesheet">
+<link href="stylesheet/bootstrap-theme.min.css" rel="stylesheet">
+<link href="stylesheet/bootstrap.css" rel="stylesheet">
+
+<html>
+<head lang="en">
+
+    <meta charset="utf-8">
+    <title>Knowledge Booth</title>
+    <meta name="description" content="Ask me Responsive Questions and Answers Template">
+    <meta name="author" content="2code.info">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Skins -->
+    <link rel="stylesheet" href="skins.css">
+
+    <!-- Responsive Style -->
+    <link rel="stylesheet" href="responsive.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="favicon.png">
+</head>
+<body>
+<div class="loader"><div class="loader_html"></div></div>
+<div id="wrap" class="grid_1200" >
+    <div class="login-panel"  >
+        <section class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="page-content">
+                        <h2>Login</h2>
+                        <div class="form-style form-style-3">
+                            <form ng-controller="loginCtrl">
+                                <div class="form-inputs clearfix">
+                                    <p class="login-text">
+                                        <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}" ng-model="email">
+                                        <i class="icon-user"></i>
+                                    </p>
+                                    <p class="login-password">
+                                        <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}" ng-model="password">
+                                        <i class="icon-lock"></i>
+                                        <a href="index.html#">Forget</a>
+                                    </p>
+                                </div>
+                                <p class="form-submit login-submit">
+                                    <input type="submit" value="Log in" class="button color small login-submit submit" ng-click="login()">
+                                </p>
+                                <div class="rememberme">
+                                    <label><input type="checkbox" checked="checked"> Remember Me</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- End page-content -->
+                </div><!-- End col-md-6 -->
+                <div class="col-md-6">
+                    <div class="page-content Register">
+                        <h2>Register Now</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravdio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequa. Vivamus vulputate posuere nisl quis consequat.</p>
+                        <a class="button color small signup">Create an account</a>
+                    </div><!-- End page-content -->
+                </div><!-- End col-md-6 -->
+            </div>
+        </section>
+    </div><!-- End login-panel -->
+    <div class="panel-pop" id="signup">
+        <h2>Register Now<i class="icon-remove"></i></h2>
+        <div class="form-style form-style-3">
+            <form ng-controller="signupCtrl">
+                <div class="form-inputs clearfix">
+                    <p>
+                        <label class="required">Full Name<span>*</span></label>
+                        <input type="text" pattern="[A-Za-z]{3,}" ng-model="name">
+                    </p>
+                    <p>
+                        <label class="required">E-Mail<span>*</span></label>
+                        <input type="email" ng-model="email">
+                    </p>
+                    <p>
+                        <label class="required">Password<span>*</span></label>
+                        <input type="password" value="" ng-model="password">
+                    </p>
+                    <p>
+                        <label class="required">Confirm Password<span>*</span></label>
+                        <input type="password" value="" ng-model="confirmPassword">
+                    </p>
+                </div>
+                <p class="form-submit">
+                    <input type="submit" value="Signup" class="button color small submit"  ng-click="submit()">
+                </p>
+            </form>
+        </div>
+    </div><!-- End signup -->
+    <div id="header-top">
+        <section class="container clearfix" >
+            <nav class="header-top-nav" ng-controller="navCtrl">
+                <ul>
+                    <li><a href="contact_us.html"><i class="icon-envelope"></i>Contact</a></li>
+                    <li><a href="index.html#"><i class="icon-headphones"></i>Support</a></li>
+                    <li ng-show="login"><a href="login.html" id="login-panel"><i class="icon-user"></i>Login Area</a></li>
+                    <li ng-show="logout1"><a ng-click="logout('/')" ><i class="icon-user"></i>Logout</a></li>
+                </ul>
+            </nav>
+            <div class="header-search">
+                <form ng-controller="navCtrl">
+                    <input type="text" value="Search here ..." ng-model="search" onfocus="if(this.value=='Search here ...')this.value='';" onblur="if(this.value=='')this.value='Search here ...';">
+                    <button type="submit" class="search-submit" ng-click="search1('search/')"></button>
+                </form>
+            </div>
+        </section><!-- End container -->
+    </div>
+    <header id="header" >
+        <section class="container clearfix">
+            <div class="logo">
+                <!--<a href="index.html"><img alt="" src="logo.png"></a>-->
+                <h1>Knowledge Booth</h1>
+            </div>
+            <nav class="navigation" ng-controller="navCtrl">
+                <ul>
+                    <li class="current_page_item"><a ng-click="go('/')">Home</a>
+
+                    </li>
+                    <li class="ask_question"><a ng-click="go('askQues')">Ask Question</a></li>
+                    <li><a ng-click= "go('topUsers')">Top Users</a>
+
+                    </li>
+                    <li><a ng-click="go('profile')" ng-show="profile">User</a>
+
+                    </li>
+
+
+
+                    <li><a href="contact_us.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </section><!-- End container -->
+    </header><!-- End header -->
+    <div class="section-warp ask-me">
+        <div class="container clearfix">
+            <div class="box_icon box_warp box_no_border box_no_background" box_border="transparent" box_background="transparent" box_color="#FFF">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2>Welcome to Knowledge Booth</h2>
+                        <p></p>
+                        <div class="clearfix"></div>
+                        <a class="color button dark_button medium" href="index.html#">About Us</a>
+                        <a class="color button dark_button medium" href="index.html#">Join Now</a>
+                    </div>
+                    <div class="col-md-9">
+                        <form class="form-style form-style-2">
+                            <p>
+                                <textarea rows="4" id="question_title" onfocus="if(this.value=='Ask any question and you be sure find your answer ?')this.value='';" onblur="if(this.value=='')this.value='Ask any question and you be sure find your answer ?';">Ask any question and you be sure find your answer ?</textarea>
+                                <i class="icon-pencil"></i>
+                                <span class="color button small publish-question">Ask Now</span>
+                            </p>
+                        </form>
+                    </div>
+                </div><!-- End row -->
+            </div><!-- End box_icon -->
+        </div><!-- End container -->
+    </div><!-- End section-warp -->
+    <section class="container main-content">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="tabs-warp question-tab">
+
+                    <div class="tab-inner-warp">
+                        <div ng-view></div>
+                    </div>
+
+                </div><!-- End page-content -->
+            </div><!-- End main -->
+            <aside class="col-md-3 sidebar">
+                <div class="widget widget_stats">
+                    <h3 class="widget_title">Stats</h3>
+                    <div class="ul_list ul_list-icon-ok">
+                        <ul>
+                            <li><i class="icon-question-sign"></i>Questions ( <span>20</span> )</li>
+                            <li><i class="icon-comment"></i>Answers ( <span>50</span> )</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="widget widget_social">
+                    <h3 class="widget_title">Find Us</h3>
+                    <ul>
+                        <li class="rss-subscribers">
+                            <a href="index.html#" target="_blank">
+                                <strong>
+                                    <i class="icon-rss"></i>
+                                    <span>Subscribe</span><br>
+                                    <small>To RSS Feed</small>
+                                </strong>
+                            </a>
+                        </li>
+                        <li class="facebook-fans">
+                            <a href="index.html#" target="_blank">
+                                <strong>
+                                    <i class="social_icon-facebook"></i>
+                                    <span>5,000</span><br>
+                                    <small>People like it</small>
+                                </strong>
+                            </a>
+                        </li>
+                        <li class="twitter-followers">
+                            <a href="index.html#" target="_blank">
+                                <strong>
+                                    <i class="social_icon-twitter"></i>
+                                    <span>3,000</span><br>
+                                    <small>Followers</small>
+                                </strong>
+                            </a>
+                        </li>
+                        <li class="youtube-subs">
+                            <a href="index.html#" target="_blank">
+                                <strong>
+                                    <i class="icon-play"></i>
+                                    <span>1,000</span><br>
+                                    <small>Subscribers</small>
+                                </strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+<div >
+                <div class="widget widget_login" ng-controller="loginCtrl" ng-show="login">
+                    <h3 class="widget_title">Login</h3>
+                    <div class="form-style form-style-2">
+                        <form>
+                            <div class="form-inputs clearfix">
+                                <p class="login-text">
+                                    <input type="text" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}" ng-model="email">
+                                    <i class="icon-user"></i>
+                                </p>
+                                <p class="login-password">
+                                    <input type="password" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}" ng-model="password">
+                                    <i class="icon-lock"></i>
+                                    <a href="index.html#">Forget</a>
+                                </p>
+                            </div>
+                            <p class="form-submit login-submit">
+                                <input type="submit" value="Log in" class="button color small login-submit submit" ng-click="login()">
+                            </p>
+                            <div class="rememberme">
+                                <label><input type="checkbox" checked="checked"> Remember Me</label>
+                            </div>
+                        </form>
+                        <ul class="login-links login-links-r">
+                            <li><a href="index.html#">Register</a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+</div>
+
+                <div class="widget widget_highest_points">
+                    <h3 class="widget_title">Highest points</h3>
+                    <ul>
+                        <li>
+                            <div class="author-img">
+                                <a href="index.html#"><img width="60" height="60" src="admin.jpeg" alt=""></a>
+                            </div>
+                            <h6><a href="index.html#">admin</a></h6>
+                            <span class="comment">12 Points</span>
+                        </li>
+                        <li>
+                            <div class="author-img">
+                                <a href="index.html#"><img width="60" height="60" src="avatar.png" alt=""></a>
+                            </div>
+                            <h6><a href="index.html#">vbegy</a></h6>
+                            <span class="comment">10 Points</span>
+                        </li>
+                        <li>
+                            <div class="author-img">
+                                <a href="index.html#"><img width="60" height="60" src="avatar.png" alt=""></a>
+                            </div>
+                            <h6><a href="index.html#">ahmed</a></h6>
+                            <span class="comment">5 Points</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget widget_tag_cloud">
+                    <h3 class="widget_title">Tags</h3>
+                    <a href="index.html#">projects</a>
+                    <a href="index.html#">Portfolio</a>
+                    <a href="index.html#">Wordpress</a>
+                    <a href="index.html#">Html</a>
+                    <a href="index.html#">Css</a>
+                    <a href="index.html#">jQuery</a>
+                    <a href="index.html#">2code</a>
+                    <a href="index.html#">vbegy</a>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget_title">Recent Questions</h3>
+                    <ul class="related-posts">
+                        <li class="related-item">
+                            <h3><a href="index.html#">This is my first Question</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="clear"></div><span>Feb 22, 2014</span>
+                        </li>
+                        <li class="related-item">
+                            <h3><a href="index.html#">This Is My Second Poll Question</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="clear"></div><span>Feb 22, 2014</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </aside><!-- End sidebar -->
+        </div><!-- End row -->
+    </section><!-- End container -->
+    <footer id="footer">
+        <section class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="widget widget_contact">
+                        <h3 class="widget_title">Where We Are ?</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu.</p>
+                        <ul>
+                            <li>
+                                <span>Address :</span>
+                                Ask Me Network, 33 Street, syada Zeinab, Cairo, Egypt.
+                            </li>
+                            <li>
+                                <span>Support :</span>Support Telephone No : (+2)01111011110
+                            </li>
+                            <li>Support Email Account : info@example.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget_title">Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="ask_question.html">Ask Question</a></li>
+                            <li><a href="ask_question.html#">About</a></li>
+                            <li><a href="cat_question.html">Questions</a></li>
+                            <li><a href="user_profile.html">Users</a></li>
+                            <li><a href="blog_1.html">Blog</a></li>
+                            <li><a href="right_sidebar.html">Pages</a></li>
+                            <li><a href="shortcodes.html">Shortcodes</a></li>
+                            <li><a href="contact_us.html">Contact Us</a></li>
+                            <li><a href="ask_question.html#">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget">
+                        <h3 class="widget_title">Popular Questions</h3>
+                        <ul class="related-posts">
+                            <li class="related-item">
+                                <h3><a href="ask_question.html#">This is my first Question</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.</p>
+                                <div class="clear"></div><span>Feb 22, 2014</span>
+                            </li>
+                            <li class="related-item">
+                                <h3><a href="ask_question.html#">This Is My Second Poll Question</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.</p>
+                                <div class="clear"></div><span>Feb 22, 2014</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget widget_twitter">
+                        <h3 class="widget_title">Latest Tweets</h3>
+                        <div class="tweet_1"></div>
+                    </div>
+                </div>
+            </div><!-- End row -->
+        </section><!-- End container -->
+    </footer><!-- End footer -->
+    <footer id="footer-bottom">
+        <section class="container">
+            <div class="copyrights f_left">Copyright 2014 Ask me | <a href="ask_question.html#">By 2code</a></div>
+            <div class="social_icons f_right">
+                <ul>
+                    <li class="twitter"><a original-title="Twitter" class="tooltip-n" href="ask_question.html#"><i class="social_icon-twitter font17"></i></a></li>
+                    <li class="facebook"><a original-title="Facebook" class="tooltip-n" href="ask_question.html#"><i class="social_icon-facebook font17"></i></a></li>
+                    <li class="gplus"><a original-title="Google plus" class="tooltip-n" href="ask_question.html#"><i class="social_icon-gplus font17"></i></a></li>
+                    <li class="youtube"><a original-title="Youtube" class="tooltip-n" href="ask_question.html#"><i class="social_icon-youtube font17"></i></a></li>
+                    <li class="skype"><a original-title="Skype" class="tooltip-n" href="skype:#?call"><i class="social_icon-skype font17"></i></a></li>
+                    <li class="flickr"><a original-title="Flickr" class="tooltip-n" href="ask_question.html#"><i class="social_icon-flickr font17"></i></a></li>
+                    <li class="rss"><a original-title="Rss" class="tooltip-n" href="ask_question.html#"><i class="social_icon-rss font17"></i></a></li>
+                </ul>
+            </div><!-- End social_icons -->
+        </section><!-- End container -->
+    </footer><!-- End footer-bottom -->
+</div>
+
+<!--<div class="row" ng-controller="navCtrl">-->
+    <!--&lt;!&ndash;<div class="col-xs-8 col-md-6">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="list-group" style="cursor: pointer">&ndash;&gt;-->
+            <!--&lt;!&ndash;<a  class="list-group-item active" ng-click="go('home')" style="float: left;">&ndash;&gt;-->
+               <!--&lt;!&ndash;Home&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a  class="list-group-item" ng-click="go('profile')" style="float: left;">Profile</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a ng-click="go('home')" class="list-group-item" style="float: left;">Sign Up</a>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--<ul class="nav nav-tabs" style="cursor: pointer">-->
+
+        <!--<li type="button" role="presentation" class="active" ng-click="go('home')"><a>Home</a></li>-->
+        <!--<li role="presentation" ng-click="go('profile')" ng-show="profile"><a>Profile</a></li>-->
+        <!--<li role="presentation" ng-click="go('signup')" ng-show="signup"><a>Signup</a></li>-->
+        <!--<li role="presentation" ng-click="go('login')" ng-show="login"><a>Login</a></li>-->
+        <!--<li type="button" role="presentation" style="float: right" class="active" ng-click="logout('home')"><a>LogOut</a></li>-->
+    <!--</ul>-->
+
+    <!--</div>-->
+    <!--<div class="col-xs-4 col-md-2"></div>-->
+    <!--<div class="col-xs-4 col-md-2">Home</div>-->
+    <!--<div class="col-xs-4 col-md-2" ng-click="go('profile')">Profile</div>-->
+    <!--<div class="col-xs-4 col-md-2">Sign Up</div>-->
+    <!--<div class="col-xs-4 col-md-2"></div>-->
+    <!--<div class="col-xs-4 col-md-2"></div>-->
+
+<div>
+    <!--<ng-view>-->
+
+    <!--</ng-view>-->
+</div>
+
+</body>
+</html>
+</html>

@@ -1,0 +1,101 @@
+<!--&lt;!&ndash;-->
+<!--<div class="row">-->
+    <!--<div class="col-xs-2 col-md-3">-->
+        <!--<div class="list-group " ng-controller="homeCtrl">-->
+            <!--<div class="btn-group">-->
+                <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                    <!--Categories <span class="caret"></span>-->
+                <!--</button>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li><a ng-click="catGo('questions/','IT')">IT</a></li>-->
+                    <!--<li><a ng-click="catGo('questions/','Physics')">Physics</a></li>-->
+                    <!--<li><a ng-click="catGo('questions/','Mathematics')">Mathematics</a></li>-->
+                    <!--<li><a ng-click="catGo('questions/','Programming')">Programming</a></li>-->
+                    <!--<li><a ng-click="catGo('questions/','Chemistry')">Chemistry</a></li>-->
+                    <!--<li><a ng-click="catGo('questions/','Science')">Science</a></li>-->
+                    <!--<li role="separator" class="divider"></li>-->
+                    <!--<li><a ng-click="catGo('questions','Other')">Other</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<button type="button" class="list-group-item" ng-click="go('questions')">Questions</button>-->
+
+            <!--<button type="button" class="list-group-item" ng-click="go('askQues')">Ask Question</button>-->
+            <!--<button type="button" class="list-group-item">Online Tutor</button>-->
+            <!--<button type="button" class="list-group-item">Users</button>-->
+
+
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-xs-12 col-sm-6 col-md-8">-->
+
+
+    <!--</div>-->
+<ul class="tabs" data-persist="true">
+    <li class="tab"><a ng-click="go('recent')" class="current">Recent Questions</a></li>
+    <!--<li class="tab"><a href="index.html#" >Most Responses</a></li>-->
+    <!--<li class="tab"><a href="index.html#">Recently Answered</a></li>-->
+    <li class="tab"><a  ng-click="go('noAns')" rel="noAns">No Answers</a></li>
+</ul>
+
+
+<div class="tab-inner" ng-repeat="q in questions " ng-show="recent">
+    <article class="question question-type-normal" >
+        <h2 >
+            <a ng-click="pageView(q,'individualQues/')">{{q.title}}</a>
+        </h2>
+        <a class="question-report" href="index.html#">Report</a>
+        <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+        <div class="question-author">
+            <a href="index.html#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="avatar.png"></a>
+        </div>
+        <div class="question-inner">
+            <div class="clearfix"></div>
+            <p class="question-desc">{{q.explanation.slice(1,200)}}....</p>
+            <div class="question-details">
+
+                <span class="question-favorite"><i class="icon-star"></i>{{q.likes}}</span>
+            </div>
+
+            <span class="question-date"><i class="icon-time"></i>{{q.date}}</span>
+            <span class="question-comment"><a href="index.html#"><i class="icon-comment"></i>{{q.numOfComments}} Comments</a></span>
+            <span class="question-view"><i class="icon-user"></i>{{q.views}} Views</span>
+            <div class="clearfix"></div>
+        </div>
+    </article>
+
+
+</div>
+<div class="tab-inner" ng-repeat="q in questions | filter:{numOfComments:0}" ng-show="noAns" >
+    <article class="question question-type-normal" >
+        <h2 >
+            <a ng-click="pageView(q,'individualQues/')">{{q.title}}</a>
+        </h2>
+        <a class="question-report" href="index.html#">Report</a>
+        <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+        <div class="question-author">
+            <a href="index.html#" original-title="ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="avatar.png"></a>
+        </div>
+        <div class="question-inner">
+            <div class="clearfix"></div>
+            <p class="question-desc">{{q.explanation.slice(1,200)}}...</p>
+            <div class="question-details">
+
+                <span class="question-favorite"><i class="icon-star"></i>{{q.likes}}</span>
+            </div>
+
+            <span class="question-date"><i class="icon-time"></i>{{q.date}}</span>
+            <span class="question-comment"><a href="index.html#"><i class="icon-comment"></i>{{q.numOfComments}} Comments</a></span>
+            <span class="question-view"><i class="icon-user"></i>{{q.views}} Views</span>
+            <div class="clearfix"></div>
+        </div>
+    </article>
+
+
+</div>
+
+
+<a href="index.html#" class="load-questions"><i class="icon-refresh"></i>Load More Questions</a>
+
+
+
+<!--</div>&ndash;&gt;-->

@@ -1,0 +1,108 @@
+
+
+<div id="wrap" class="grid_1200">
+	
+
+
+
+	
+
+	<section class="container main-content">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="row">
+					<div class="user-profile">
+						<div class="col-md-12">
+							<div class="page-content">
+								<h2>About {{user.name}}</h2>
+								<div class="user-profile-img"><img width="60" height="60" src="admin.jpeg" alt="admin"></div>
+								<div class="ul_list ul_list-icon-ok about-user">
+									<ul>
+										<li><i class="icon-plus"></i>Registerd : <span>{{user.date}}</span></li>
+										<li><i class="icon-calendar"></i>Date-of-Birth : <span>{{user.dob}}</span></li>
+										<li><i class="icon-book"></i>Education : <span>{{user.education}}</span></li>
+                                        <li><i class="icon-star"></i>Stars : <span>{{user.likes}}</span></li>
+									</ul>
+								</div>
+								<p>{{user.about}}</p>
+								<div class="clearfix"></div>
+								<button id="buttonId" class="icon-plus" ng-show="true" ng-click="go('edit_profile')" style="cursor: pointer"> Edit Profile</button>
+								<!--<a href="profile.html#" original-title="Facebook" class="tooltip-n">-->
+									<!--<span class="icon_i">-->
+										<!--<span class="icon_square" icon_size="30" span_bg="#3b5997" span_hover="#2f3239">-->
+											<!--<i class="social_icon-facebook"></i>-->
+										<!--</span>-->
+									<!--</span>-->
+								<!--</a>-->
+								<!--<a href="profile.html#" original-title="Twitter" class="tooltip-n">-->
+									<!--<span class="icon_i">-->
+										<!--<span class="icon_square" icon_size="30" span_bg="#00baf0" span_hover="#2f3239">-->
+											<!--<i class="social_icon-twitter"></i>-->
+										<!--</span>-->
+									<!--</span>-->
+								<!--</a>-->
+								<!--<a href="profile.html#" original-title="Linkedin" class="tooltip-n">-->
+									<!--<span class="icon_i">-->
+										<!--<span class="icon_square" icon_size="30" span_bg="#006599" span_hover="#2f3239">-->
+											<!--<i class="social_icon-linkedin"></i>-->
+										<!--</span>-->
+									<!--</span>-->
+								<!--</a>-->
+								<!--<a href="profile.html#" original-title="Google plus" class="tooltip-n">-->
+									<!--<span class="icon_i">-->
+										<!--<span class="icon_square" icon_size="30" span_bg="#c43c2c" span_hover="#2f3239">-->
+											<!--<i class="social_icon-gplus"></i>-->
+										<!--</span>-->
+									<!--</span>-->
+								<!--</a>-->
+								<!--<a href="profile.html#" original-title="Email" class="tooltip-n">-->
+									<!--<span class="icon_i">-->
+										<!--<span class="icon_square" icon_size="30" span_bg="#000" span_hover="#2f3239">-->
+											<!--<i class="social_icon-email"></i>-->
+										<!--</span>-->
+									<!--</span>-->
+								<!--</a>-->
+							</div><!-- End page-content -->
+						</div><!-- End col-md-12 -->
+						<div class="col-md-12">
+							<div class="page-content page-content-user-profile">
+								<div class="user-profile-widget">
+									<h2>User's Questions</h2>
+                                    <div class="user-questions" ng-repeat="q in userQuestions">
+                                        <article class="question user-question">
+                                            <h3>
+                                                <a ng-click="pageView(q,'individualQues/')">{{q.title}}</a>
+                                            </h3>
+                                            <div class="question-type-main"><i class="icon-question-sign"></i>Question</div>
+                                            <div class="question-content">
+                                                <div class="question-bottom">
+
+                                                    <span class="question-favorite"><i class="icon-star"></i>{{q.likes}}</span>
+
+                                                    <span class="question-date"><i class="icon-time"></i>{{q.date}}</span>
+                                                    <span class="question-comment"><a href="user_questions.html#"><i class="icon-comment"></i>{{q.numOfComments}} Answers</a></span>
+
+                                                    <span class="question-view"><i class="icon-user"></i>{{q.views}} views</span>
+                                                </div>
+                                            </div>
+                                        </article>
+
+                                    </div>
+								</div><!-- End user-profile-widget -->
+							</div><!-- End page-content -->
+						</div><!-- End col-md-12 -->
+					</div><!-- End user-profile -->
+				</div><!-- End row -->
+				<div class="clearfix"></div>
+
+			</div><!-- End main -->
+
+		</div><!-- End row -->
+	</section><!-- End container -->
+	
+
+</div><!-- End wrap -->
+
+<div class="go-up"><i class="icon-chevron-up"></i></div>
+
+<!-- js -->
